@@ -56,7 +56,7 @@ class ThingsBoardAgent:
                         continue
                     
                     sensor_record = common.utility.parse_log_record(jsondata)
-                    if sensor_record["mode"] == "csv-1":
+                    if sensor_record is not None and sensor_record["mode"] == "csv-1":
                         self.send_thingsboard(sensor_record)
 
             except ConnectionRefusedError:
