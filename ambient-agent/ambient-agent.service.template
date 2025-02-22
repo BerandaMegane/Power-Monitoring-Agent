@@ -1,0 +1,13 @@
+[Unit]
+Description = Grid-Power-Monitoring Ambient Agent
+After = grid-power-adapter.service
+
+[Service]
+WorkingDirectory = {Working Directory}
+ExecStart = /path/to/env/bin/python main.py
+Restart = on-failure
+User = {user}
+
+[Install]
+WantedBy = multi-user.target
+WantedBy = grid-power-adapter.service

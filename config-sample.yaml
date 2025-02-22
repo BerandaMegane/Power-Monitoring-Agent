@@ -1,0 +1,29 @@
+grid-power-adapter:
+  server:
+    # バインドするアドレス
+    host: 127.0.0.1
+    port: 12345
+  client:
+    # 接続先アドレス
+    host: 127.0.0.1
+    port: 12345
+
+ambient-agent:
+  # Ambient を利用する場合のユーザ情報
+  channel_id: 00000
+  write_key: xxxxxxxxxxxxxxxx
+  user_key: xxxxxxxxxxxxxxxxxx
+  # プロキシを利用する場合はコメントを外してください
+  # proxy:
+  #   http_proxy: http://proxy.example.com:8080
+  #   https_proxy: http://proxy.example.com:8080
+  #   no_proxy: 127.0.0.1;localhost
+
+thingsboard-agent:
+  # ThingsBoard を利用する場合
+  url: https://example.com/api/v1/xxxxxxxxxxxxxxxxxxxx/telemetry
+  # プロキシを利用する場合はコメントを外してください
+  # proxy:
+  #   http_proxy: http://proxy.example.com:8080
+  #   https_proxy: http://proxy.example.com:8080
+  #   no_proxy: 127.0.0.1;localhost

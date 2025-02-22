@@ -1,0 +1,11 @@
+[Unit]
+Description = Grid-Power-Adapter
+
+[Service]
+WorkingDirectory = {Working Directory}
+ExecStart = /path/to/venv/bin/python main.py
+Restart = on-failure
+User = {user}
+
+[Install]
+WantedBy = multi-user.target
