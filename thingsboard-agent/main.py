@@ -64,10 +64,16 @@ class ThingsBoardAgent:
                     self._restart_time = 30
                     logger.info("ConnectionRefusedError: %d秒後に再接続を試みます" % self._restart_time)
                     time.sleep(self._restart_time)
-            except Exception as e:
-                traceback.print_exc()
+            except OSError:
                 if not self.is_stop:
-                    raise e
+                    self._restart_time = 30
+                    logger.info("OSError: %d秒後に再接続を試みます" % self._restart_time)
+                    time.sleep(self._restart_time)
+            except Exception as e:
+                logger.exception()
+                if not self.is_stop:
+                    logger.info("Unknown Error: %d秒後に再接続を試みます" % self._restart_time)
+                    time.sleep(self._restart_time)
 
     def send_thingsboard(self, record):
         # 必要データを取得
